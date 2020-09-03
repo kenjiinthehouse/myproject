@@ -76,6 +76,7 @@ if ($totalRows > 0) {
                 <th scope="col" class="thumb-down"><i class="far fa-thumbs-down"></i></th>
                 <th scope="col" class="accuse""><i class=" fas fa-flag"></i></th>
                 <th scope="col">Time</th>
+                <th scope="col delete-btn"><i class="fas fa-trash"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -88,6 +89,7 @@ if ($totalRows > 0) {
                     <td><?= $r['lose_points'] ?></td>
                     <td><?= $r['accuse_points'] ?></td>
                     <td><?= $r['post_time'] ?></td>
+                    <td><a href="javascript:delete_it(<?= $r['sid'] ?>)"><i class="fas fa-trash"></i></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -96,4 +98,11 @@ if ($totalRows > 0) {
 
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
+<script>
+    function delete_it(sid) {
+        if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
+            location.href = 'forum-data-delete-api.php?sid=' + sid;
+        }
+    }
+</script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>
