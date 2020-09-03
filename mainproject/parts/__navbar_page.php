@@ -11,7 +11,8 @@ if (!isset($page_name)) $page_name = '';
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item <?= $page_name == 'admin_home' ? 'active' : '' ?>">
+                <?php /* <li class="nav-item <?=  $page_name == 'admin_home' ? 'active' : ''  ?>">    */ ?>
+                <li class="nav-item">
                     <a class="nav-link" href="./admin_home_page.php">首頁</a>
                 </li>
 
@@ -26,7 +27,7 @@ if (!isset($page_name)) $page_name = '';
                 </li>
 
             </ul>
-            <?php if (isset($_SESSION['admin'])) : ?>
+            <?php  /*if (isset($_SESSION['admin'])) : ?>
                 <ul class="navbar-nav">
                     <li class="nav-item ">
                         <a class="nav-link"><?= $_SESSION['admin']['admin_nickname'] ?></a>
@@ -35,13 +36,21 @@ if (!isset($page_name)) $page_name = '';
                         <a class="nav-link" href="./logoutsql.php">登出</a>
                     </li>
                 </ul>
-            <?php else : ?>
-                <ul class="navbar-nav">
-                    <li class="nav-item <?= $page_name == 'loginSqlPage' ? 'active' : '' ?>">
-                        <a class="nav-link" href="./loginsql.php">登入</a>
-                    </li>
-                </ul>
-            <?php endif; ?>
+            <?php else :  */ ?>
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link"></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="./logoutsql.php">登出</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item <?= $page_name == 'loginSqlPage' ? 'active' : '' ?>">
+                    <a class="nav-link" href="./loginsql.php">登入</a>
+                </li>
+            </ul>
+            <?php /*  endif; */ ?>
         </div>
     </div>
 
