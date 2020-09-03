@@ -35,6 +35,23 @@ if ($totalRows > 0) {
     <div class="row justify-content-center">
         <h1 class="display-3">國家機器運作中<i class="fas fa-wrench"></i></h1>
     </div>
+    <!-- 新增留言區塊 -->
+
+    <form action="" class="row justify-content-center">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <textarea name="" id="" cols="65" rows="3"></textarea>
+        <button type="button" class="btn btn-success">發表留言</button>
+    </form>
+
+</div>
+<!-- 內容呈現 -->
+<div class="container-fluid">
+    <!-- 換頁按鈕 -->
     <div class="row page-button">
         <div class="col d-flex justify-content-end">
             <nav aria-label="Page navigation example">
@@ -62,10 +79,6 @@ if ($totalRows > 0) {
         </div>
 
     </div>
-</div>
-
-<!-- 內容呈現 -->
-<div class="container-fluid">
     <table class="table table-striped forum-content-table">
         <thead>
             <tr scope="row">
