@@ -24,11 +24,11 @@ $stmt->execute([
 ]);
 
 
-// echo $stmt->rowCount();
-// echo 'ok';
-// if ($stmt->rowCount()) {
-//     $output['success'] = true;
-// }
+echo $stmt->rowCount();
+echo 'ok';
+if ($stmt->rowCount()) {
+    $output['success'] = true;
+}
 
 
-// echo json_encode($output, JSON_UNESCAPED_UNICODE);
+echo json_encode($output, JSON_UNESCAPED_UNICODE);

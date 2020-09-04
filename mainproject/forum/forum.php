@@ -38,7 +38,7 @@ if ($totalRows > 0) {
     <!-- 新增留言區塊 -->
 
     <div class="form-group">
-        <form name="form1" onsubmit="sendForm();return false;" novalidate>
+        <form name="form1" onsubmit="sendForm();return false;">
             <label for="exampleFormControlTextarea1">給點回覆</label>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -49,7 +49,11 @@ if ($totalRows > 0) {
             <div>
                 <textarea class="form-control" id="forum-content" name="forum-content" rows="3"></textarea>
             </div>
+            <div id="infobar" class="alert alert-success" role="alert" style="display: none;">
+                A simple success alert—check it out!
+            </div>
             <button type="submit" class="btn btn-success">發表留言</button>
+
         </form>
     </div>
 
@@ -118,6 +122,9 @@ if ($totalRows > 0) {
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
 <script>
+    const $forumContent = document.querySelector('#forum-content');
+    const infobar = document.querySelector('#infobar');
+
     // 刪除功能
     function delete_it(sid) {
         if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
@@ -126,34 +133,52 @@ if ($totalRows > 0) {
     }
     // 寫入留言
     function sendForm() {
-        const fd = new FormData(document.form1);
+        let isPass = true;
 
-        fetch('forum-insert-api.php', {
-                method: 'POST',
-                body: fd
-            })
-            .then(r => r.json())
-            .then(obj => {
-                console.log(obj);
-                if (obj.success) {
-                    infobar.innerHTML = '新增成功';
-                    infobar.className = "alert alert-success";
-                    // if (infobar.classList.contains('alert-danger')) {
-                    //     infobar.classList.replace('alert-danger', 'alert-success')}
-                    setTimeout(() => {
-                        location.href = 'forum.php';
-                    }, 3000)
 
-                } else {
-                    infobar.innerHTML = obj.error || '新增失敗';
-                    infobar.className = "alert alert-danger";
-                    // if (infobar.classList.contains('alert-success')) {
-                    //     infobar.classList.replace('alert-success', 'alert-danger')}
-                    submitBtn.style.display = 'block';
 
-                }
-                infobar.style.display = 'block';
-            });
+        // TODO: 檢查資料格式
+        if (!$forumContent.value.length) {
+            isPass = false;
+            $forumContent.style.borderColor = 'red';
+            $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+        }
+
+
+        if (isPass) {
+            const fd = new FormData(document.form1);
+
+            fetch('forum-insert-api.php', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(r => r.json())
+                .then(obj => {
+                    console.log(obj);
+                    if (obj.success) {
+
+                        infobar.innerHTML = '新增成功';
+                        infobar.className = "alert alert-success";
+                        // if (infobar.classList.contains('alert-danger')) {
+                        //     infobar.classList.replace('alert-danger', 'alert-success')}
+                        setTimeout(() => {
+                            location.href = 'forum.php';
+                        }, 3000)
+
+                    } else {
+                        infobar.innerHTML = obj.error || '新增失敗';
+                        infobar.className = "alert alert-danger";
+                        // if (infobar.classList.contains('alert-success')) {
+                        //     infobar.classList.replace('alert-success', 'alert-danger')}
+                        submitBtn.style.display = 'block';
+
+                    }
+                    infobar.style.display = 'block';
+                });
+        } else {
+            submitBtn.style.display = 'block';
+        }
+
     }
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>
