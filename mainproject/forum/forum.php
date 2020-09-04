@@ -103,7 +103,7 @@ if ($totalRows > 0) {
                 <tr>
                     <th scope="row"><?= $r['sid'] ?></th>
                     <td><?= $r['member_id'] ?></td>
-                    <td><?= $r['content'] ?></td>
+                    <td><?= htmlentities($r['content']) ?></td>
                     <td><?= $r['add_points'] ?></td>
                     <td><?= $r['lose_points'] ?></td>
                     <td><?= $r['accuse_points'] ?></td>
