@@ -20,15 +20,15 @@ VALUES ( NULL, ?, ?, default, default, default, now())";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([
     $_POST['member_id'],
-    $_POST['content'],
+    $_POST['forum-content'],
 ]);
 
 
 // echo $stmt->rowCount();
 // echo 'ok';
-if ($stmt->rowCount()) {
-    $output['success'] = true;
-}
+// if ($stmt->rowCount()) {
+//     $output['success'] = true;
+// }
 
 
-echo json_encode($output, JSON_UNESCAPED_UNICODE);
+// echo json_encode($output, JSON_UNESCAPED_UNICODE);

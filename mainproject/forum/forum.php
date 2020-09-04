@@ -37,16 +37,22 @@ if ($totalRows > 0) {
     </div>
     <!-- 新增留言區塊 -->
 
-    <form action="" class="row justify-content-center">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">@</span>
+    <div class="form-group">
+        <form name="form1" onsubmit="sendForm();return false;" novalidate>
+            <label for="exampleFormControlTextarea1">給點回覆</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Username" id="member_id" name="member_id">
             </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <textarea name="" id="" cols="65" rows="3"></textarea>
-        <button type="button" class="btn btn-success">發表留言</button>
-    </form>
+            <div>
+                <textarea class="form-control" id="forum-content" name="forum-content" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">發表留言</button>
+        </form>
+    </div>
+
 
 </div>
 <!-- 內容呈現 -->
@@ -112,10 +118,42 @@ if ($totalRows > 0) {
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
 <script>
+    // 刪除功能
     function delete_it(sid) {
         if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
             location.href = 'forum-data-delete-api.php?sid=' + sid;
         }
+    }
+    // 寫入留言
+    function sendForm() {
+        const fd = new FormData(document.form1);
+
+        fetch('forum-insert-api.php', {
+                method: 'POST',
+                body: fd
+            })
+            .then(r => r.json())
+            .then(obj => {
+                console.log(obj);
+                if (obj.success) {
+                    infobar.innerHTML = '新增成功';
+                    infobar.className = "alert alert-success";
+                    // if (infobar.classList.contains('alert-danger')) {
+                    //     infobar.classList.replace('alert-danger', 'alert-success')}
+                    setTimeout(() => {
+                        location.href = 'forum.php';
+                    }, 3000)
+
+                } else {
+                    infobar.innerHTML = obj.error || '新增失敗';
+                    infobar.className = "alert alert-danger";
+                    // if (infobar.classList.contains('alert-success')) {
+                    //     infobar.classList.replace('alert-success', 'alert-danger')}
+                    submitBtn.style.display = 'block';
+
+                }
+                infobar.style.display = 'block';
+            });
     }
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>

@@ -26,6 +26,10 @@ if (!isset($page_name)) $page_name = '';
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="./forum.php">國家機器</a>
+                </li>
+
             </ul>
             <?php  /*if (isset($_SESSION['admin'])) : ?>
                 <ul class="navbar-nav">
