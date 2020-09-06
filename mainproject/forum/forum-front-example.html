@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/forum.css" />
+  </head>
+  <body>
+    <div class="comment_area">
+      <div id="cbox_module" class="u_cbox">
+        <div class="u_cbox_wrap u_cbox_zh-hant u_cbox_type_sort_favorite">
+          <div class="u_cbox_head">
+            <h5 class="u_cbox_title">留言</h5>
+            <span class="u_cbox_count">37</span
+            ><button
+              type="button"
+              class="u_cbox_btn_refresh"
+              data-action="count#refresh"
+              data-log="RPO.refresh"
+            >
+              <span class="u_cbox_ico_refresh"></span
+              ><span class="u_cbox_txt_refresh">重新整理</span>
+            </button>
+            <div class="u_cbox_head_tools"></div>
+          </div>
+          <div class="u_cbox_write_wrap">
+            <div class="u_cbox_write_box u_cbox_type_logged_out">
+              <form>
+                <fieldset>
+                  <legend class="u_vc">留下評論</legend>
+                  <div class="u_cbox_write">
+                    <div class="u_cbox_write_inner">
+                      <div class="u_cbox_write_area">
+                        <strong class="u_vc">留下評論</strong>
+                        <div class="u_cbox_inbox">
+                          <textarea
+                            id="cbox_module__write_textarea"
+                            class="u_cbox_text"
+                            rows="3"
+                            cols="30"
+                            data-log="RPC.input"
+                          ></textarea
+                          ><label
+                            for="cbox_module__write_textarea"
+                            class="u_cbox_guide"
+                            data-action="write#placeholder"
+                            data-param="@event"
+                            >若想撰寫評論，請<a href="#" class="u_cbox_link"
+                              >登入</a
+                            ></label
+                          >
+                        </div>
+                      </div>
+                      <div class="u_cbox_upload_image" style="display: none">
+                        <span
+                          class="u_cbox_upload_image_wrap fileButton browsebutton _cboxImageSelect"
+                          ><span class="u-cbox-browse-box"
+                            ><input
+                              class="u-cbox-browse-file-input"
+                              type="file"
+                              name="browse"
+                              accept="image/*"
+                              title="新增圖片" /></span
+                          ><a
+                            href="#"
+                            class="u_cbox_upload_thumb_link u-cbox-browse-button"
+                            data-log="RPP.add"
+                            ><span class="u_cbox_upload_thumb_add"
+                              >新增圖片</span
+                            ><span class="u_cbox_upload_thumb_mask"></span></a
+                        ></span>
+                      </div>
+                      <div
+                        class="u_cbox_upload_sticker"
+                        style="display: none"
+                      ></div>
+                      <div class="u_cbox_write_count">
+                        <span class="u_vc">目前輸入的字數</span
+                        ><strong class="u_cbox_count_num">0</strong>/<span
+                          class="u_vc"
+                          >可輸入的總字數</span
+                        ><span class="u_cbox_write_total">500</span>
+                      </div>
+                      <div class="u_cbox_upload">
+                        <div class="u_cbox_addition"></div>
+                        <button
+                          type="button"
+                          class="u_cbox_btn_upload"
+                          data-action="write#request"
+                          data-log="RPC.write#RPC.reply"
+                        >
+                          <span class="u_cbox_ico_upload"></span
+                          ><span class="u_cbox_txt_upload">登錄評論</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <div
+            class="u_cbox_notice u_cbox_notice_none"
+            style="display: none"
+          ></div>
+          <div class="u_cbox_sort">
+            <strong class="u_vc">選擇留言陳列選項</strong>
+            <div class="u_cbox_sort_option">
+              <div class="u_cbox_sort_scroller">
+                <ul class="u_cbox_sort_option_list">
+                  <li class="u_cbox_sort_option_wrap u_cbox_sort_option_on">
+                    <a
+                      href="#"
+                      data-action="sort#request"
+                      data-param="favorite"
+                      data-log="RPS.like"
+                      class="u_cbox_select"
+                      ><span class="u_cbox_ico_select">已選擇</span
+                      ><span class="u_cbox_sort_label">按人氣順序</span></a
+                    >
+                  </li>
+                  <li class="u_cbox_sort_option_wrap">
+                    <a
+                      href="#"
+                      data-action="sort#request"
+                      data-param="new"
+                      data-log="RPS.new"
+                      class="u_cbox_select"
+                      ><span class="u_cbox_ico_select"></span
+                      ><span class="u_cbox_sort_label">按新登錄順序</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="u_cbox_head_tools"></div>
+          </div>
+          <div class="u_cbox_content_wrap">
+            <ul class="u_cbox_list">
+              <li
+                class="u_cbox_comment cbox_module__comment_126376025 _user_id_no_23cc9660-405f-11e6-956b-0000000057d4"
+                data-info="commentNo:126376025,deleted:false,best:true,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:126376025"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_sns_icons u_cbox_sns_facebook"
+                          >Facebook</span
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">蕭小于</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_ico_best">BEST</span
+                      ><span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗是表示：還是用我的尿吧😏😏😏</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-07-19T04:21:31+0900"
+                        >7月 19日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:126376025,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="126376025"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt">3</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126376025,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">892</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126376025,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">5</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_126347516 _user_id_no_07cd7f40-669f-11e6-8ad9-000000003984"
+                data-info="commentNo:126347516,deleted:false,best:true,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:126347516"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick"
+                                >兔子耳朵的狐狸</span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_ico_best">BEST</span
+                      ><span class="u_cbox_contents" data-lang="zh-hant"
+                        >小鈴鐺眉頭一皺，發現事情並不簡單～</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-07-19T00:02:31+0900"
+                        >7月 18日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:126347516,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="126347516"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt">1</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126347516,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">559</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126347516,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">2</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_126363049 _user_id_no_37ea9f90-b931-11e9-8b51-a0086f45fcca"
+                data-info="commentNo:126363049,deleted:false,best:true,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:126363049"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_sns_icons u_cbox_sns_facebook"
+                          >Facebook</span
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">南宮鳶</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_ico_best">BEST</span
+                      ><span class="u_cbox_contents" data-lang="zh-hant"
+                        >說吧！你其實是哆啦A夢對不對？不要以為你換成這個造型我就認不出你了</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-07-19T01:52:11+0900"
+                        >7月 19日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:126363049,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="126363049"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt">3</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126363049,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">492</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126363049,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">3</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_132464385 _user_id_no_fc1a3910-b89e-11e7-8119-00000000f048"
+                data-info="commentNo:132464385,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:132464385"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">Erica</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >快笑死😆😆小鈴鐺一臉你是在跟我開玩笑是嗎？果然心魔是最難克服的，可是一但你克服他會使你成長與堅強</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-08-30T12:26:04+0900"
+                        >8月 30日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:132464385,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="132464385"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:132464385,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">91</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:132464385,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133371541 _user_id_no_3d0db350-9e15-11e8-89cc-a0086f45fe1a"
+                data-info="commentNo:133371541,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133371541"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">°Д°？</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗狗實在太可愛了，我喜歡那個質疑的眼神😂😂</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-05T23:28:00+0900"
+                        >18 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133371541,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133371541"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371541,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">63</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371541,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">1</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_132632511 _user_id_no_e9cabb60-1339-11e6-af54-000000006110"
+                data-info="commentNo:132632511,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:132632511"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">阿喵</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗狗看到水槍的表情讓我笑到岔氣😂</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-08-31T15:20:27+0900"
+                        >6 天前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:132632511,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="132632511"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:132632511,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">51</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:132632511,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_126465014 _user_id_no_99054970-d897-11e5-806b-0000000068a4"
+                data-info="commentNo:126465014,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:126465014"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_sns_icons u_cbox_sns_facebook"
+                          >Facebook</span
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">神經貓貓</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >粉貓：啊啊要沒水了狗：😏😏(抬腿</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-07-19T20:37:10+0900"
+                        >7月 19日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:126465014,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="126465014"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126465014,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">26</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126465014,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133371221 _user_id_no_efd60230-8260-11e6-b0b6-000000005143"
+                data-info="commentNo:133371221,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133371221"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_sns_icons u_cbox_sns_facebook"
+                          >Facebook</span
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick"
+                                >MambaForever</span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗狗表情包真的快笑死</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-05T23:25:07+0900"
+                        >18 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133371221,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133371221"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371221,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">23</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371221,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_126350389 _user_id_no_f806e4c0-72c3-11e7-888d-000000007b0c"
+                data-info="commentNo:126350389,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:126350389"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">Peggy</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗狗也太可愛了吧😆</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-07-19T00:18:09+0900"
+                        >7月 18日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:126350389,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="126350389"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126350389,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">23</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:126350389,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133369580 _user_id_no_17ccdd10-0925-11e5-92b8-0000000016c2"
+                data-info="commentNo:133369580,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133369580"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_sns_icons u_cbox_sns_facebook"
+                          >Facebook</span
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">夜に駆ける</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >為什麼狗狗可以怎麼可愛啦</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-05T23:12:30+0900"
+                        >18 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133369580,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133369580"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133369580,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">16</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133369580,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133372680 _user_id_no_8ff9b700-3ea3-11ea-b711-a0086f45fe58"
+                data-info="commentNo:133372680,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133372680"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick"
+                                >你/妳喜歡什麼樣的男主？</span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >小鈴鐺真的是太可愛了啦！！！可惜不能截圖ಥ༼ ۝ ಥ</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-05T23:38:15+0900"
+                        >18 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133372680,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133372680"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133372680,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">10</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133372680,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_131163992 _user_id_no_3296bbc0-5be0-11e6-b18a-0000000007c9"
+                data-info="commentNo:131163992,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:131163992"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick"
+                                >Cecilio Jay呂尚</span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >看來都是針對心理弱點，燕赤霞原來失去過妹妹？？</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-08-21T10:51:04+0900"
+                        >8月 21日</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:131163992,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="131163992"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:131163992,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">9</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:131163992,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133371104 _user_id_no_28a565e0-eab0-11e5-8239-000000003984"
+                data-info="commentNo:133371104,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133371104"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">尋梅</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >天！那聲「汪！」萌到我了啊啊！</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-05T23:24:09+0900"
+                        >18 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133371104,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133371104"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371104,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">8</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133371104,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133375764 _user_id_no_e7126b30-3c47-11ea-a7d9-246e964876a4"
+                data-info="commentNo:133375764,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133375764"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick"
+                                >中二生(*´ω｀*)</span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >狗狗表示：尿意來了！來撒泡尿吧！</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-06T00:07:50+0900"
+                        >17 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133375764,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133375764"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133375764,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">7</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133375764,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+              <li
+                class="u_cbox_comment cbox_module__comment_133402947 _user_id_no_a037e6f0-96a1-11e9-ad55-246e964ce5dc"
+                data-info="commentNo:133402947,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'w_1755_52',replyLevel:1,parentCommentNo:133402947"
+              >
+                <div class="u_cbox_comment_box">
+                  <div class="u_cbox_area">
+                    <div class="u_cbox_info">
+                      <span class="u_cbox_info_main"
+                        ><span class="u_cbox_name"
+                          ><span class="u_cbox_name_area"
+                            ><span class="u_cbox_nick_area"
+                              ><span class="u_cbox_nick">冰玥星</span></span
+                            ></span
+                          ></span
+                        ></span
+                      ><span class="u_cbox_info_sub"></span>
+                    </div>
+                    <div class="u_cbox_text_wrap">
+                      <span class="u_cbox_contents" data-lang="zh-hant"
+                        >果然每個人的背後都有一段故事
+                        可能包含著他們曾經經歷過的痛苦和悲傷吧...我想作者應該是打算從他們的心底
+                        那曾經不想再提起、面對的東西著手
+                        將他們內心曾珍視的一部分再次展現在面前 當作是一道考驗
+                        讓他們能重新面對並戰勝自己所畏懼的事物
+                        而變得更加強大(?)很期待後續的故事發展~</span
+                      >
+                    </div>
+                    <div class="u_cbox_info_base">
+                      <span
+                        class="u_cbox_date"
+                        data-value="2020-09-06T03:22:30+0900"
+                        >14 小時前</span
+                      ><span class="u_cbox_work_main"
+                        ><a
+                          href="#"
+                          class="u_cbox_btn_report"
+                          data-action="report#request"
+                          data-param="commentNo:133402947,objectId:'w_1755_52'"
+                          data-log="RPC.report"
+                          ><span class="u_cbox_ico_bar"></span
+                          ><span class="u_cbox_ico_report"></span
+                          ><span class="u_cbox_in_report">檢舉</span></a
+                        ></span
+                      >
+                    </div>
+                    <div class="u_cbox_tool">
+                      <a
+                        href="#"
+                        class="u_cbox_btn_reply"
+                        data-action="reply#toggle"
+                        data-param="133402947"
+                        data-log="RPC.replyopen#RPC.replyclose"
+                        ><strong class="u_cbox_reply_txt">回應</strong
+                        ><span class="u_cbox_reply_cnt u_vc">0</span></a
+                      >
+                      <div class="u_cbox_recomm_set">
+                        <strong class="u_vc">贊同/不贊同</strong
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133402947,voteStatus:'SYMPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.sym#RPC.unsym"
+                          class="u_cbox_btn_recomm"
+                          ><span class="u_cbox_ico_recomm">贊同</span
+                          ><em class="u_cbox_cnt_recomm">4</em></a
+                        ><a
+                          href="#"
+                          data-action="vote"
+                          data-param="mine:false,commentNo:133402947,voteStatus:'ANTIPATHY',objectId:'w_1755_52',ticket:'webtoon'"
+                          data-log="RPC.dis#RPC.undis"
+                          class="u_cbox_btn_unrecomm"
+                          ><span class="u_cbox_ico_unrecomm">不贊同</span
+                          ><em class="u_cbox_cnt_unrecomm">0</em></a
+                        >
+                      </div>
+                    </div>
+                    <span class="u_cbox_comment_frame"
+                      ><span class="u_cbox_ico_tip"></span
+                      ><span class="u_cbox_comment_frame_top"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                      ><span class="u_cbox_comment_frame_bottom"
+                        ><span class="u_cbox_comment_bg_r"></span
+                        ><span class="u_cbox_comment_bg_l"></span></span
+                    ></span>
+                  </div>
+                </div>
+                <div class="u_cbox_reply_area" style="display: none"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="u_cbox_paginate" style="">
+            <div class="u_cbox_page_wrap">
+              <span
+                class="u_cbox_pre u_cbox_pre_end"
+                title="Move to first page list"
+                ><span class="u_cbox_ico_page"></span
+                ><span class="u_cbox_cnt_page">First page</span
+                ><span class="u_vc">Move to page list</span></span
+              ><span class="u_cbox_pre" title="Move to previous page list"
+                ><span class="u_cbox_ico_page"></span
+                ><span class="u_cbox_cnt_page">上一頁</span
+                ><span class="u_vc">Move to page list</span></span
+              ><strong class="u_cbox_page"
+                ><span class="u_cbox_num_page">1</span
+                ><span class="u_vc">Current page</span></strong
+              ><a
+                href="#"
+                class="u_cbox_page"
+                data-action="page#move"
+                data-log="RPC.pgnum"
+                ><span class="u_cbox_num_page">2</span></a
+              ><span class="u_cbox_next" title="Move to next page list"
+                ><span class="u_cbox_cnt_page">下一頁</span
+                ><span class="u_cbox_ico_page"></span
+                ><span class="u_vc">Move to page list</span></span
+              ><a
+                href="#"
+                class="u_cbox_next u_cbox_next_end"
+                title="Move to last page list"
+                data-action="page#move"
+                data-log="RPC.pglast"
+                ><span class="u_cbox_cnt_page">Last page</span
+                ><span class="u_cbox_ico_page"></span
+                ><span class="u_vc">Move to page list</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
