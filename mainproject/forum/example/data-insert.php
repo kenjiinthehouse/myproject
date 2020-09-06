@@ -21,7 +21,7 @@ require __DIR__ . '/parts/__admin_required.php';
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <div class="card"">
+            <div class="card">
             <div class=" card-body">
                 <h5 class="card-title">新增資料</h5>
                 <!-- form+ novalidate 不使用HTML5的驗證機制 -->

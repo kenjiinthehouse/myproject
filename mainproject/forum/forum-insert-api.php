@@ -24,8 +24,8 @@ $stmt->execute([
 ]);
 
 
-echo $stmt->rowCount();
-echo 'ok';
+// echo $stmt->rowCount();
+// echo 'ok';
 if ($stmt->rowCount()) {
     $output['success'] = true;
 }
