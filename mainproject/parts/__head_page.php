@@ -8,13 +8,28 @@
     <link rel="stylesheet" href="./../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./../fontawesome/css/all.css">
     <style>
-        nav {
-            margin-bottom: 20px;
-        }
+    nav {
+        margin-bottom: 20px;
+    }
 
-        .forum-content-table {
-            width: 100%;
-        }
+    .forum-content-table {
+        width: 100%;
+    }
+
+
+    .thumbs-up,
+    .thumbs-down,
+    .thumbs-points {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .bottom-btns,
+    .bottom-btn {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
     </style>
 </head>
 

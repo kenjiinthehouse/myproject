@@ -110,15 +110,23 @@ if ($totalRows > 0) {
                 </div>
             </div>
 
-            <!-- 右下按鈕區 -->
-            <div class="d-flex justify-content-end">
-                <div style="margin-right: 10px">
-                    <a href="#" class="card-link thumbs-up"><i class="far fa-thumbs-up"></i>
-                    </a><span><?= $r['add_points'] ?></span>
+            <!-- bottom按鈕區 -->
+            <div class="bottom-btns d-flex">
+                <div class="">
+                    <a href="#" class="card-link bottom-btn"><span class="">回覆(5)</span>
+                    </a>
                 </div>
-                <div>
-                    <a href="#" class="card-link thumbs-down"><i
-                            class="far fa-thumbs-down"></i></a><span><?= $r['lose_points'] ?></span>
+                <div class="mr-auto">
+                    <a href="#" class="card-link bottom-btn"><span class="">編輯</span>
+                    </a>
+                </div>
+                <div class="thumbs-up">
+                    <a href="#" class="card-link"><i class="far fa-thumbs-up"></i>
+                    </a><span class="thumbs-points"><?= $r['add_points'] ?></span>
+                </div>
+                <div class="thumbs-down">
+                    <a href="#" class="card-link"><i class="far fa-thumbs-down"></i></a><span
+                        class="thumbs-points"><?= $r['lose_points'] ?></span>
                 </div>
             </div>
         </div>
