@@ -114,9 +114,22 @@ $rows = $stmt->fetchAll();    */
                     <td><?= $r['mobile'] ?></td>
                     <td><?= $r['birthday'] ?></td>
                     <td><?= $r['address'] ?></td>
+
+
+
                     <?php if (isset($_SESSION['admin'])) : ?>
                         <td><a href="data-edit.php?sid=<?= $r['sid'] ?>"><i class="fas fa-edit"></i></a></td>
                     <?php endif; ?>
+
+<!-- project-forum驗證編輯機制試做 -->
+                    <?php if (($_SESSION['loginok']['nickname'])==()) : ?>
+                        <td><a href="data-edit.php?sid=<?= $r['sid'] ?>"><i class="fas fa-edit"></i></a></td>
+                    <?php endif; ?>
+
+
+
+
+
                 </tr>
             <?php endforeach; ?>
         </tbody>

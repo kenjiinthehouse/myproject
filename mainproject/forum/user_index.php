@@ -24,6 +24,8 @@ if ($totalRows > 0) {
     $stmt = $pdo->query($sql);
     $rows = $stmt->fetchAll();
 };
+
+
 ?>
 
 
@@ -112,13 +114,41 @@ if ($totalRows > 0) {
 
                 <!-- bottom按鈕區 -->
                 <div class="bottom-btns d-flex">
-                    <div class="">
+                    <div class="" style="margin-right: 10px">
                         <a href="#" class="card-link bottom-btn"><span class="">回覆(5)</span>
                         </a>
                     </div>
                     <div class="mr-auto">
-                        <a href="#" class="card-link bottom-btn"><span class="">編輯</span>
-                        </a>
+                        <!-- 編輯功能按鈕 -->
+                        <?php /*if (!isset($_SESSION['loginok'])) : ?>
+                        <?php endif;  */ ?>
+                        <?php if (isset($_SESSION['loginok']) && ($_SESSION['loginok']['nickname']) == ($r['member_id'])) : ?>
+
+                            <!-- Button trigger modal -->
+                            <a type="button" class="btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-edit"></i>
+                            </a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
                     </div>
                     <div class="thumbs-up">
                         <a href="#" class="card-link"><i class="far fa-thumbs-up"></i>
@@ -134,7 +164,7 @@ if ($totalRows > 0) {
 <?php endforeach; ?>
 
 
-</body>
+
 
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
@@ -143,14 +173,14 @@ if ($totalRows > 0) {
     const infobar = document.querySelector('#infobar');
     const submitBtn = document.querySelector('button[type=submit]');
     const $loginok = document.querySelector('#member_id')
-    
 
-        // 刪除功能
-        function delete_it(sid) {
-            if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
-                location.href = 'forum-data-delete-api.php?sid=' + sid;
-            }
+
+    // 刪除功能
+    function delete_it(sid) {
+        if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
+            location.href = 'forum-data-delete-api.php?sid=' + sid;
         }
+    }
     // 寫入留言
     function sendForm() {
         if ($loginok.value) {

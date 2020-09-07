@@ -44,6 +44,8 @@ $output['authority'] = $authority;
 if ($stmt->rowCount()) {
     $output['success'] = true;
     $_SESSION['loginok'] = $stmt->fetch();
+    // var_dump($_SESSION['loginok']['nickname']);
+    // exit;
 }
 
 

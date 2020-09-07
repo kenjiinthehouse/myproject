@@ -1,8 +1,13 @@
 <?php
-$db_host = '192.168.27.155';
+// $db_host = '192.168.27.155';
+// $db_name = 'mfee09_project';
+// $db_user = 'kenji';
+// $db_pass = '0000';
+
+$db_host = 'localhost';
 $db_name = 'mfee09_project';
-$db_user = 'kenji';
-$db_pass = '0000';
+$db_user = 'root';
+$db_pass = '';
 
 $dns = "mysql:host={$db_host};dbname={$db_name};";
 
