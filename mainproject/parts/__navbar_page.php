@@ -31,30 +31,56 @@ if (!isset($page_name)) $page_name = '';
                 </li>
 
             </ul>
-            <?php  /*if (isset($_SESSION['admin'])) : ?>
-                <ul class="navbar-nav">
+            <ul class="navbar-nav">
+                <?php if (isset($_SESSION['loginok'])) : ?>
                     <li class="nav-item ">
-                        <a class="nav-link"><?= $_SESSION['admin']['admin_nickname'] ?></a>
+                        <a class="nav-link"><?= $_SESSION['loginok']['nickname'] ?></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="./logoutsql.php">登出</a>
+                        <a class="nav-link" href="f-logout.php">登出</a>
                     </li>
-                </ul>
-            <?php else :  */ ?>
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link"></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./logoutsql.php">登出</a>
-                </li>
+
             </ul>
+        <?php else : ?>
             <ul class="navbar-nav">
-                <li class="nav-item <?= $page_name == 'loginSqlPage' ? 'active' : '' ?>">
-                    <a class="nav-link" href="./loginsql.php">登入</a>
-                </li>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    登入
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">登入入入</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" name="check_form" onsubmit="checkAccount(); return false;">
+                                    <div class="form-group">
+                                        <label for="account">Account</label>
+                                        <input type="email" class="form-control" id="account" name="account" placeholder="使用email地址登入你的帳號">
+                                        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    </div>
+                                    <div class="buttons d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary" style="margin-right: 5px;">登入</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">不登</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
-            <?php /*  endif; */ ?>
+        <?php endif;  ?>
         </div>
     </div>
 
@@ -66,3 +92,22 @@ if (!isset($page_name)) $page_name = '';
         border-radius: 5px;
     }
 </style>
+<script>
+    function checkAccount() {
+        const check_login = new FormData(document.check_form);
+        fetch('f-login-api.php', {
+                method: 'POST',
+                body: check_login
+            })
+            .then(r => r.json())
+            .then(obj => {
+                console.log(obj);
+                if (obj.success) {
+                    alert('登入成功');
+                    location.href = 'user_index.php';
+                } else {
+                    alert('登入失敗');
+                }
+            });
+    }
+</script>

@@ -28,7 +28,7 @@ if ($totalRows > 0) {
 
 
 <?php include __DIR__ . './../parts/__head_page.php'; ?>
-<?php include __DIR__ . './../parts/__navbar_page-copy.php'; ?>
+<?php include __DIR__ . './../parts/__navbar_page.php'; ?>
 
 
 
