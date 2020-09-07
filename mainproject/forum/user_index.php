@@ -28,7 +28,7 @@ if ($totalRows > 0) {
 
 
 <?php include __DIR__ . './../parts/__head_page.php'; ?>
-<?php include __DIR__ . './../parts/__navbar_page.php'; ?>
+<?php include __DIR__ . './../parts/__navbar_page-copy.php'; ?>
 
 
 
@@ -74,9 +74,9 @@ if ($totalRows > 0) {
                     if ($i < 1) continue;
                     if ($i > $totalPages) break;
                 ?>
-                <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                    <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
-                </li>
+                    <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                        <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                    </li>
                 <?php endfor; ?>
                 <li class="page-item">
                     <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
@@ -92,46 +92,45 @@ if ($totalRows > 0) {
 
 <!-- 留言內容引入 !-->
 <?php foreach ($rows as $r) : ?>
-<div class="container d-flex justify-content-center" style="background-color:#ccc">
-    <div class="card" style="width: 50rem; margin: 20px">
-        <div class="card-body">
-            <h5 class="card-title"><?= $r['member_id'] ?></h5>
+    <div class="container d-flex justify-content-center" style="background-color:#ccc">
+        <div class="card" style="width: 50rem; margin: 20px">
+            <div class="card-body">
+                <h5 class="card-title"><?= $r['member_id'] ?></h5>
 
-            <p class="card-text"><?= htmlentities($r['content']) ?></p>
+                <p class="card-text"><?= htmlentities($r['content']) ?></p>
 
-            <div class="d-flex">
-                <div style="margin-right: 10px">
-                    <span><?= $r['post_time'] ?></span>
+                <div class="d-flex">
+                    <div style="margin-right: 10px">
+                        <span><?= $r['post_time'] ?></span>
+                    </div>
+                    <div>
+                        <span>
+                            <a href="#" class="card-link accuse"><i class="fas fa-flag"></i></a>
+                        </span>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <a href="#" class="card-link accuse"><i class="fas fa-flag"></i></a>
-                    </span>
-                </div>
-            </div>
 
-            <!-- bottom按鈕區 -->
-            <div class="bottom-btns d-flex">
-                <div class="">
-                    <a href="#" class="card-link bottom-btn"><span class="">回覆(5)</span>
-                    </a>
-                </div>
-                <div class="mr-auto">
-                    <a href="#" class="card-link bottom-btn"><span class="">編輯</span>
-                    </a>
-                </div>
-                <div class="thumbs-up">
-                    <a href="#" class="card-link"><i class="far fa-thumbs-up"></i>
-                    </a><span class="thumbs-points"><?= $r['add_points'] ?></span>
-                </div>
-                <div class="thumbs-down">
-                    <a href="#" class="card-link"><i class="far fa-thumbs-down"></i></a><span
-                        class="thumbs-points"><?= $r['lose_points'] ?></span>
+                <!-- bottom按鈕區 -->
+                <div class="bottom-btns d-flex">
+                    <div class="">
+                        <a href="#" class="card-link bottom-btn"><span class="">回覆(5)</span>
+                        </a>
+                    </div>
+                    <div class="mr-auto">
+                        <a href="#" class="card-link bottom-btn"><span class="">編輯</span>
+                        </a>
+                    </div>
+                    <div class="thumbs-up">
+                        <a href="#" class="card-link"><i class="far fa-thumbs-up"></i>
+                        </a><span class="thumbs-points"><?= $r['add_points'] ?></span>
+                    </div>
+                    <div class="thumbs-down">
+                        <a href="#" class="card-link"><i class="far fa-thumbs-down"></i></a><span class="thumbs-points"><?= $r['lose_points'] ?></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <?php endforeach; ?>
 
 
@@ -140,60 +139,60 @@ if ($totalRows > 0) {
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
 <script>
-const $forumContent = document.querySelector('#forum-content');
-const infobar = document.querySelector('#infobar');
-const submitBtn = document.querySelector('button[type=submit]');
+    const $forumContent = document.querySelector('#forum-content');
+    const infobar = document.querySelector('#infobar');
+    const submitBtn = document.querySelector('button[type=submit]');
 
-// 刪除功能
-function delete_it(sid) {
-    if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
-        location.href = 'forum-data-delete-api.php?sid=' + sid;
+    // 刪除功能
+    function delete_it(sid) {
+        if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
+            location.href = 'forum-data-delete-api.php?sid=' + sid;
+        }
     }
-}
-// 寫入留言
-function sendForm() {
-    let isPass = true;
+    // 寫入留言
+    function sendForm() {
+        let isPass = true;
 
-    //TODO: 檢查是否有輸入留言內容
-    if (!$forumContent.value.length) {
-        isPass = false;
-        $forumContent.style.borderColor = 'red';
-        $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+        //TODO: 檢查是否有輸入留言內容
+        if (!$forumContent.value.length) {
+            isPass = false;
+            $forumContent.style.borderColor = 'red';
+            $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+        }
+
+
+        if (isPass) {
+            const fd = new FormData(document.form1);
+
+            fetch('forum-insert-api.php', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(r => r.json());
+            // .then(obj => {
+            //     console.log(obj);
+            //     if (obj.success) {
+            //         infobar.innerHTML = '新增成功';
+            //         infobar.className = "alert alert-success";
+
+            //         setTimeout(() => {
+            //             location.href = 'forum.php';
+            //         }, 3000)
+
+            //     } else {
+            //         infobar.innerHTML = obj.error || '新增失敗';
+            //         infobar.className = "alert alert-danger";
+
+            //         submitBtn.style.display = 'block';
+
+            //     }
+            //     infobar.style.display = 'block';
+            // });
+
+        } else {
+            submitBtn.style.display = 'block';
+        }
+
     }
-
-
-    if (isPass) {
-        const fd = new FormData(document.form1);
-
-        fetch('forum-insert-api.php', {
-                method: 'POST',
-                body: fd
-            })
-            .then(r => r.json());
-        // .then(obj => {
-        //     console.log(obj);
-        //     if (obj.success) {
-        //         infobar.innerHTML = '新增成功';
-        //         infobar.className = "alert alert-success";
-
-        //         setTimeout(() => {
-        //             location.href = 'forum.php';
-        //         }, 3000)
-
-        //     } else {
-        //         infobar.innerHTML = obj.error || '新增失敗';
-        //         infobar.className = "alert alert-danger";
-
-        //         submitBtn.style.display = 'block';
-
-        //     }
-        //     infobar.style.display = 'block';
-        // });
-
-    } else {
-        submitBtn.style.display = 'block';
-    }
-
-}
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>
