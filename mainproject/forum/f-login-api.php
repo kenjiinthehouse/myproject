@@ -5,9 +5,11 @@ header('Content-Type: application/json');
 
 $output = [
     'success' => false,
+    'authority' => '',
     'postData' => $_POST,
     'code' => 0,
     'error' => ''
+
 ];
 
 $account = isset($_POST['account']) ? $_POST['account'] : '';
@@ -24,10 +26,27 @@ $stmt->execute([
     $password,
 ]);
 
+
+
+
+$authoritycheck =  "SELECT `authority` 
+FROM `forum_testaccount` 
+WHERE `account`='$account' AND `password`='$password'";
+
+$adminstmt = $pdo->query($authoritycheck)->fetch();
+$authority = filter_var($adminstmt['authority'], FILTER_VALIDATE_BOOLEAN);
+
+
+$output['authority'] = $authority;
+
+
+
 if ($stmt->rowCount()) {
     $output['success'] = true;
     $_SESSION['loginok'] = $stmt->fetch();
 }
+
+
 
 
 

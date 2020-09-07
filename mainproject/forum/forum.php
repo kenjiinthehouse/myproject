@@ -44,10 +44,10 @@ if ($totalRows > 0) {
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" id="member_id" name="member_id">
+                <input type="text" class="form-control" placeholder="Username" id="member_id" name="member_id" value="<?= $_SESSION['loginok']['nickname'] ?? '' ?>">
             </div>
             <div>
-                <textarea class="form-control" id="forum-content" name="forum-content" rows="3"></textarea>
+                <textarea class=" form-control" id="forum-content" name="forum-content" rows="3"></textarea>
                 <small class="form-text error-msg"></small>
             </div>
             <div id="infobar" class="alert alert-success" role="alert" style="display: none;">
@@ -76,9 +76,9 @@ if ($totalRows > 0) {
                         if ($i < 1) continue;
                         if ($i > $totalPages) break;
                     ?>
-                    <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                        <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
-                    </li>
+                        <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                            <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+                        </li>
                     <?php endfor; ?>
                     <li class="page-item">
                         <a class="page-link" href="?page=<?= $page + 1 ?>" aria-label="Next">
@@ -105,16 +105,16 @@ if ($totalRows > 0) {
         </thead>
         <tbody>
             <?php foreach ($rows as $r) : ?>
-            <tr>
-                <th scope="row"><?= $r['sid'] ?></th>
-                <td><?= $r['member_id'] ?></td>
-                <td><?= htmlentities($r['content']) ?></td>
-                <td><?= $r['add_points'] ?></td>
-                <td><?= $r['lose_points'] ?></td>
-                <td><?= $r['accuse_points'] ?></td>
-                <td><?= $r['post_time'] ?></td>
-                <td><a href="javascript:delete_it(<?= $r['sid'] ?>)"><i class="fas fa-trash"></i></a></td>
-            </tr>
+                <tr>
+                    <th scope="row"><?= $r['sid'] ?></th>
+                    <td><?= $r['member_id'] ?></td>
+                    <td><?= htmlentities($r['content']) ?></td>
+                    <td><?= $r['add_points'] ?></td>
+                    <td><?= $r['lose_points'] ?></td>
+                    <td><?= $r['accuse_points'] ?></td>
+                    <td><?= $r['post_time'] ?></td>
+                    <td><a href="javascript:delete_it(<?= $r['sid'] ?>)"><i class="fas fa-trash"></i></a></td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
@@ -123,60 +123,60 @@ if ($totalRows > 0) {
 
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
 <script>
-const $forumContent = document.querySelector('#forum-content');
-const infobar = document.querySelector('#infobar');
-const submitBtn = document.querySelector('button[type=submit]');
+    const $forumContent = document.querySelector('#forum-content');
+    const infobar = document.querySelector('#infobar');
+    const submitBtn = document.querySelector('button[type=submit]');
 
-// 刪除功能
-function delete_it(sid) {
-    if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
-        location.href = 'forum-data-delete-api.php?sid=' + sid;
+    // 刪除功能
+    function delete_it(sid) {
+        if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
+            location.href = 'forum-data-delete-api.php?sid=' + sid;
+        }
     }
-}
-// 寫入留言
-function sendForm() {
-    let isPass = true;
+    // 寫入留言
+    function sendForm() {
+        let isPass = true;
 
-    //TODO: 檢查是否有輸入留言內容
-    if (!$forumContent.value.length) {
-        isPass = false;
-        $forumContent.style.borderColor = 'red';
-        $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+        //TODO: 檢查是否有輸入留言內容
+        if (!$forumContent.value.length) {
+            isPass = false;
+            $forumContent.style.borderColor = 'red';
+            $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+        }
+
+
+        if (isPass) {
+            const fd = new FormData(document.form1);
+
+            fetch('forum-insert-api.php', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(r => r.json());
+            // .then(obj => {
+            //     console.log(obj);
+            //     if (obj.success) {
+            //         infobar.innerHTML = '新增成功';
+            //         infobar.className = "alert alert-success";
+
+            //         setTimeout(() => {
+            //             location.href = 'forum.php';
+            //         }, 3000)
+
+            //     } else {
+            //         infobar.innerHTML = obj.error || '新增失敗';
+            //         infobar.className = "alert alert-danger";
+
+            //         submitBtn.style.display = 'block';
+
+            //     }
+            //     infobar.style.display = 'block';
+            // });
+
+        } else {
+            submitBtn.style.display = 'block';
+        }
+
     }
-
-
-    if (isPass) {
-        const fd = new FormData(document.form1);
-
-        fetch('forum-insert-api.php', {
-                method: 'POST',
-                body: fd
-            })
-            .then(r => r.json());
-        // .then(obj => {
-        //     console.log(obj);
-        //     if (obj.success) {
-        //         infobar.innerHTML = '新增成功';
-        //         infobar.className = "alert alert-success";
-
-        //         setTimeout(() => {
-        //             location.href = 'forum.php';
-        //         }, 3000)
-
-        //     } else {
-        //         infobar.innerHTML = obj.error || '新增失敗';
-        //         infobar.className = "alert alert-danger";
-
-        //         submitBtn.style.display = 'block';
-
-        //     }
-        //     infobar.style.display = 'block';
-        // });
-
-    } else {
-        submitBtn.style.display = 'block';
-    }
-
-}
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>

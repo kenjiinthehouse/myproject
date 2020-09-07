@@ -102,7 +102,10 @@ if (!isset($page_name)) $page_name = '';
             .then(r => r.json())
             .then(obj => {
                 console.log(obj);
-                if (obj.success) {
+                if (obj.authority) {
+                    alert('登入成功');
+                    location.href = 'forum.php';
+                } else if (obj.success) {
                     alert('登入成功');
                     location.href = 'user_index.php';
                 } else {
