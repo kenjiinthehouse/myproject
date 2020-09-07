@@ -42,7 +42,7 @@ if ($totalRows > 0) {
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username" id="member_id" name="member_id">
+                    <input type="text" class="form-control" placeholder="請登入後留言" id="member_id" name="member_id" value="<?= $_SESSION['loginok']['nickname'] ?? '' ?>">
                 </div>
                 <div>
                     <textarea class="form-control" id="forum-content" name="forum-content" rows="3"></textarea>
@@ -142,57 +142,67 @@ if ($totalRows > 0) {
     const $forumContent = document.querySelector('#forum-content');
     const infobar = document.querySelector('#infobar');
     const submitBtn = document.querySelector('button[type=submit]');
+    const $loginok = document.querySelector('#member_id')
+    
 
-    // 刪除功能
-    function delete_it(sid) {
-        if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
-            location.href = 'forum-data-delete-api.php?sid=' + sid;
+        // 刪除功能
+        function delete_it(sid) {
+            if (confirm(`是否要刪除編號為 ${sid} 的資料???`)) {
+                location.href = 'forum-data-delete-api.php?sid=' + sid;
+            }
         }
-    }
     // 寫入留言
     function sendForm() {
-        let isPass = true;
+        if ($loginok.value) {
+            let isPass = true;
 
-        //TODO: 檢查是否有輸入留言內容
-        if (!$forumContent.value.length) {
-            isPass = false;
-            $forumContent.style.borderColor = 'red';
-            $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
-        }
+            //TODO: 檢查是否有輸入留言內容
+            if (!$forumContent.value.length) {
+                isPass = false;
+                $forumContent.style.borderColor = 'red';
+                $forumContent.nextElementSibling.innerHTML = '想留言的話請輸入內容哦!';
+            }
 
 
-        if (isPass) {
-            const fd = new FormData(document.form1);
+            if (isPass) {
+                const fd = new FormData(document.form1);
 
-            fetch('forum-insert-api.php', {
-                    method: 'POST',
-                    body: fd
-                })
-                .then(r => r.json());
-            // .then(obj => {
-            //     console.log(obj);
-            //     if (obj.success) {
-            //         infobar.innerHTML = '新增成功';
-            //         infobar.className = "alert alert-success";
+                fetch('forum-insert-api.php', {
+                        method: 'POST',
+                        body: fd
+                    })
+                    .then(r => r.json());
+                // .then(obj => {
+                //     console.log(obj);
+                //     if (obj.success) {
+                //         infobar.innerHTML = '新增成功';
+                //         infobar.className = "alert alert-success";
 
-            //         setTimeout(() => {
-            //             location.href = 'forum.php';
-            //         }, 3000)
+                //         setTimeout(() => {
+                //             location.href = 'forum.php';
+                //         }, 3000)
 
-            //     } else {
-            //         infobar.innerHTML = obj.error || '新增失敗';
-            //         infobar.className = "alert alert-danger";
+                //     } else {
+                //         infobar.innerHTML = obj.error || '新增失敗';
+                //         infobar.className = "alert alert-danger";
 
-            //         submitBtn.style.display = 'block';
+                //         submitBtn.style.display = 'block';
 
-            //     }
-            //     infobar.style.display = 'block';
-            // });
+                //     }
+                //     infobar.style.display = 'block';
+                // });
+
+            } else {
+                submitBtn.style.display = 'block';
+            }
+
+
+
 
         } else {
-            submitBtn.style.display = 'block';
+            //未登入彈出登入modal
+            $('#loginModal').modal('show');
         }
-
     }
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>

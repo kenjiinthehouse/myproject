@@ -29,4 +29,6 @@ if ($stmt->rowCount()) {
     $_SESSION['loginok'] = $stmt->fetch();
 }
 
+
+
 echo json_encode($output, JSON_UNESCAPED_UNICODE);
