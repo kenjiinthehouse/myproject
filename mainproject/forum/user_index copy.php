@@ -24,24 +24,6 @@ if ($totalRows > 0) {
     $stmt = $pdo->query($sql);
     $rows = $stmt->fetchAll();
 };
-// print_r($rows);;
-// exit;
-// "SELECT `content` FROM `forum` WHERE `sid`=?"
-
-
-
-
-
-
-$getEditSid = isset($_GET['sid']) ? intval($_GET['sid']) : '0';
-$editarea_sql = sprintf("SELECT `content` FROM `forum` WHERE `sid`=%s", $getEditSid);
-$editarea = $pdo->query($editarea_sql)->fetch();
-
-
-// var_dump($editarea['content']);
-// exit;
-
-
 
 
 ?>
@@ -116,8 +98,9 @@ $editarea = $pdo->query($editarea_sql)->fetch();
         <div class="card" style="width: 50rem; margin: 20px">
             <div class="card-body">
                 <h5 class="card-title"><?= $r['member_id'] ?></h5>
-                <span id="contentSid"><?= $r['sid'] ?>樓</span>
-                <p class=" card-text"><?= htmlentities($r['content']) ?></p>
+                
+
+                <p class="card-text"><?= htmlentities($r['content']) ?></p>
 
                 <div class="d-flex">
                     <div style="margin-right: 10px">
@@ -143,33 +126,29 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                         <?php if (isset($_SESSION['loginok']) && ($_SESSION['loginok']['nickname']) == ($r['member_id'])) : ?>
 
                             <!-- Button trigger modal -->
-                            <a type="button" class="btn-link" data-toggle="modal" data-target="#editModal"><i class="far fa-edit" data-id="<?= $r['sid'] ?>"></i>
+                            <a type="button" class="btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-edit"></i>
                             </a>
-                        <?php endif; ?>
-                        <!-- Modal -->
-                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-
-                                    <form name="form2" onsubmit="editContent(); return false;">
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">編輯內容</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <textarea class="form-control" id="forum-content2" name="forum-content2" rows="3"><?= htmlentities($editarea['content']) ?></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
-                                            <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i></button>
-                                        </div>
-                                    </form>
-
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <form name="form2" onsubmit="editContent(); return false;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">編輯內容</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <textarea class="form-control" id="forum-content2" name="forum-content2" rows="3"><?= htmlentities($r['content']) ?></textarea>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-
+                        <?php endif; ?>
                     </div>
                     <div class="thumbs-up">
                         <a href="#" class="card-link"><i class="far fa-thumbs-up"></i>
@@ -266,29 +245,5 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                 body: fd2
             })
             .then(r => r.json());
-    }
-
-
-    // const ck = parseInt(document.querySelector('#contentSid').innerHTML);
-    // function editClick() {
-    //     fetch('forum-editbox-api.php', {
-    //             method: 'POST',
-    //             body: ck
-    //         })
-    //         .then(r => r.json());
-    // }
-    const editBtn = document.querySelectorAll('.fa-edit');
-    editBtn.forEach(
-        (btn) => {
-            btn.addEventListener('click', (event) => {
-                const contentSid = event.target.dataset.id
-                console.log(event);
-                location.href = `user_index.php?sid=${contentSid}`;
-            })
-        }
-    );
-    if (location.search.includes('sid')) {
-        $('#editModal').modal('show');
-    };
 </script>
 <?php include __DIR__ . './../parts/__foot_page.php'; ?>
