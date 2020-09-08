@@ -155,7 +155,7 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                                             <h5 class="modal-title">編輯內容</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <input type="text" style="" id="content_sid" name="content_sid" value="<?= $editarea['sid'] ?>">
+                                            <input type="text" style="display: none;" id="content_sid" name="content_sid" value="<?= $editarea['sid'] ?>">
                                             <textarea class="form-control" id="forum-content2" name="forum-content2" rows="3"><?= htmlentities($editarea['content']) ?></textarea>
                                         </div>
                                         <div class="modal-footer">
