@@ -121,11 +121,12 @@ $rows = $stmt->fetchAll();    */
                         <td><a href="data-edit.php?sid=<?= $r['sid'] ?>"><i class="fas fa-edit"></i></a></td>
                     <?php endif; ?>
 
-<!-- project-forum驗證編輯機制試做 -->
+                    <!-- project-forum驗證編輯機制試做 -->
+                    <?php /*
                     <?php if (($_SESSION['loginok']['nickname'])==()) : ?>
                         <td><a href="data-edit.php?sid=<?= $r['sid'] ?>"><i class="fas fa-edit"></i></a></td>
                     <?php endif; ?>
-
+   */   ?>
 
 
 
