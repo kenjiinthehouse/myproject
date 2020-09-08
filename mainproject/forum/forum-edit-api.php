@@ -25,7 +25,7 @@ WHERE `sid`=?";
 $updateStmt = $pdo->prepare($updateSql);
 $updateStmt->execute([
     $_POST['forum-content2'],
-    $_POST['sid'] = $_GET['sid'],
+    $_POST['content_sid'],
 ]);
 
 

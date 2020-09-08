@@ -37,8 +37,7 @@ $getEditSid = isset($_GET['sid']) ? intval($_GET['sid']) : '0';
 $editarea_sql = sprintf("SELECT * FROM `forum` WHERE `sid`=%s", $getEditSid);
 $editarea = $pdo->query($editarea_sql)->fetch();
 
-$boxSid = $_GET['sid'];
-// var_dump($editarea['sid']);
+// var_dump($editarea);
 // exit;
 
 
@@ -156,7 +155,7 @@ $boxSid = $_GET['sid'];
                                             <h5 class="modal-title">編輯內容</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <input type="text" style="display: none;" id="content_sid" name="content_sid" value="<?= $boxSid ?>">
+                                            <input type="text" style="" id="content_sid" name="content_sid" value="<?= $editarea['sid'] ?>">
                                             <textarea class="form-control" id="forum-content2" name="forum-content2" rows="3"><?= htmlentities($editarea['content']) ?></textarea>
                                         </div>
                                         <div class="modal-footer">
@@ -238,20 +237,20 @@ $boxSid = $_GET['sid'];
         }
     }
 
-    // 編輯功能
+    // 編輯功能@modal
     const editBox = document.querySelector('#form2')
 
     function editContent() {
-        const fd2 = new FormData(document.editBox);
+        const fd2 = new FormData(editBox);
         console.log(fd2);
         fetch('forum-edit-api.php', {
                 method: 'POST',
                 body: fd2
             })
-            .then(r => r.json());
-        // .then(
-        //     location.href = 'user_index.php'
-        // );
+            .then(r => r.json())
+            .then(
+                location.href = 'user_index.php'
+            );
     }
 
 
