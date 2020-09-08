@@ -112,7 +112,7 @@ $editarea = $pdo->query($editarea_sql)->fetch();
 
 <!-- 留言內容引入 !-->
 <?php foreach ($rows as $r) : ?>
-    <div class="container d-flex justify-content-center" style="background-color:#ccc">
+    <div class="container d-flex justify-content-center">
         <div class="card" style="width: 50rem; margin: 20px">
             <div class="card-body">
                 <h5 class="card-title"><?= $r['member_id'] ?></h5>
@@ -191,7 +191,7 @@ $editarea = $pdo->query($editarea_sql)->fetch();
 <?php include __DIR__ . './../parts/__script_page.php'; ?>
 <script>
     const $forumContent = document.querySelector('#forum-content');
-    const infobar = document.querySelector('#infobar');
+    // const infobar = document.querySelector('#infobar');
     const submitBtn = document.querySelector('button[type=submit]');
     const $loginok = document.querySelector('#member_id')
 
@@ -222,29 +222,10 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                         method: 'POST',
                         body: fd
                     })
-                    .then(r => r.json());
-                // .then(obj => {
-                //     console.log(obj);
-                //     if (obj.success) {
-                //         infobar.innerHTML = '新增成功';
-                //         infobar.className = "alert alert-success";
-
-                //         setTimeout(() => {
-                //             location.href = 'forum.php';
-                //         }, 3000)
-
-                //     } else {
-                //         infobar.innerHTML = obj.error || '新增失敗';
-                //         infobar.className = "alert alert-danger";
-
-                //         submitBtn.style.display = 'block';
-
-                //     }
-                //     infobar.style.display = 'block';
-                // });
-
-            } else {
-                submitBtn.style.display = 'block';
+                    .then(r => r.json())
+                    .then(
+                        location.href = 'user_index.php'
+                    );
             }
 
 
@@ -265,7 +246,10 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                 method: 'POST',
                 body: fd2
             })
-            .then(r => r.json());
+            .then(r => r.json())
+            .then(
+                location.href = 'user_index.php'
+            );
     }
 
 
