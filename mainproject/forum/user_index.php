@@ -34,11 +34,11 @@ if ($totalRows > 0) {
 
 
 $getEditSid = isset($_GET['sid']) ? intval($_GET['sid']) : '0';
-$editarea_sql = sprintf("SELECT `content` FROM `forum` WHERE `sid`=%s", $getEditSid);
+$editarea_sql = sprintf("SELECT * FROM `forum` WHERE `sid`=%s", $getEditSid);
 $editarea = $pdo->query($editarea_sql)->fetch();
 
-
-// var_dump($editarea['content']);
+$boxSid = $_GET['sid'];
+// var_dump($editarea['sid']);
 // exit;
 
 
@@ -151,12 +151,12 @@ $editarea = $pdo->query($editarea_sql)->fetch();
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
 
-                                    <form name="form2" onsubmit="editContent(); return false;">
-
+                                    <form name="form2" id="form2" onsubmit="editContent(); return false;">
                                         <div class="modal-header">
                                             <h5 class="modal-title">編輯內容</h5>
                                         </div>
                                         <div class="modal-body">
+                                            <input type="text" style="display: none;" id="content_sid" name="content_sid" value="<?= $boxSid ?>">
                                             <textarea class="form-control" id="forum-content2" name="forum-content2" rows="3"><?= htmlentities($editarea['content']) ?></textarea>
                                         </div>
                                         <div class="modal-footer">
@@ -218,6 +218,7 @@ $editarea = $pdo->query($editarea_sql)->fetch();
             if (isPass) {
                 const fd = new FormData(document.form1);
 
+
                 fetch('forum-insert-api.php', {
                         method: 'POST',
                         body: fd
@@ -238,18 +239,19 @@ $editarea = $pdo->query($editarea_sql)->fetch();
     }
 
     // 編輯功能
+    const editBox = document.querySelector('#form2')
+
     function editContent() {
-
-        const fd2 = new FormData(document.form2);
-
+        const fd2 = new FormData(document.editBox);
+        console.log(fd2);
         fetch('forum-edit-api.php', {
                 method: 'POST',
                 body: fd2
             })
-            .then(r => r.json())
-            .then(
-                location.href = 'user_index.php'
-            );
+            .then(r => r.json());
+        // .then(
+        //     location.href = 'user_index.php'
+        // );
     }
 
 

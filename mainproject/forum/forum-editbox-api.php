@@ -20,7 +20,7 @@ $editboxsql = "SELECT * FROM `forum` WHERE `sid`=?";
 
 $openboxStmt = $pdo->prepare($editboxsql);
 $openboxStmt->execute([
-    $_POST['<script>ck</script>'],
+    $_POST['forum-content2'],
 
 ]);
 
