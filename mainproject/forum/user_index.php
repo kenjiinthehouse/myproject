@@ -39,19 +39,50 @@ $editarea = $pdo->query($editarea_sql)->fetch();
 
 // var_dump($editarea);
 // exit;
-
-
-
-
 ?>
-
-
 <?php include __DIR__ . './../parts/__head_page.php'; ?>
 <?php include __DIR__ . './../parts/__navbar_page.php'; ?>
+<style>
+    * {
+        font-family: 'Raleway', 'Noto Sans TC', sans-serif;
+    }
+
+    body {
+        background: -webkit-linear-gradient(#859398, #283048);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(#859398, #283048);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    .card-body {
+        background-color: rgba(173, 181, 189, 0.5);
+    }
+
+    nav {
+        margin-bottom: 20px;
+    }
+
+    .forum-content-table {
+        width: 100%;
+    }
 
 
+    .thumbs-up,
+    .thumbs-down,
+    .thumbs-points {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 
+    .bottom-btns,
+    .bottom-btn {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+</style>
 
+<!-- 留言區塊 -->
 <div class="container d-flex justify-content-center">
     <form name="form1" onsubmit="sendForm(); return false;">
         <div class="card" style="width: 50rem; margin: 50px">
@@ -76,7 +107,6 @@ $editarea = $pdo->query($editarea_sql)->fetch();
             </div>
         </div>
     </form>
-
 </div>
 
 <!-- 換頁按鈕 !-->
